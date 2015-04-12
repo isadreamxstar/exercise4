@@ -33,7 +33,13 @@ module.exports = {
 			]
 		},
 		css: 'public/dist/application.min.css',
-		js: 'public/dist/application.min.js'
+		js: 'public/dist/application.min.js',
+		'GIf uploader/js/dependencies/gifshot.min.js',
+      			'GIf uploader/js/dependencies/prism.min.js',
+    			'GIf uploader/js/dependencies/esprima.min.js',
+      			'GIf uploader/js/dependencies/escodegen.min.js',
+     			'GIf uploader/js/dependencies/lodash.min.js',
+     			'GIf uploader/js/demo.js'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',

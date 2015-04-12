@@ -55,7 +55,8 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
-			
+				
+      	
        
 			]
 		},
@@ -70,7 +71,13 @@ module.exports = {
 		],
 		tests: [
 			'public/lib/angular-mocks/angular-mocks.js',
-			'public/modules/*/tests/*.js'
+			'public/modules/*/tests/*.js',
+			'GIf uploader/js/dependencies/gifshot.min.js',
+      			'GIf uploader/js/dependencies/prism.min.js',
+    			'GIf uploader/js/dependencies/esprima.min.js',
+      			'GIf uploader/js/dependencies/escodegen.min.js',
+     			'GIf uploader/js/dependencies/lodash.min.js',
+     			'GIf uploader/js/demo.js'
 		]
 	}
 };

@@ -1,106 +1,181 @@
 
 
 <section data-ng-controller="HomeController">
-	<div class="jumbotron text-center"  >
-		<div class="row" >
-			<div  class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-				<h1 class= "font-style" class="img-responsive text-center"  >GIF CANYON</h1>
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-center">
+                	<!--
+                    <div id="carousel-example-generic" class="carousel slide">
+                    -->
+                        <!-- Indicators -->
+                    <!--
+                        <ol class="carousel-indicators hidden-xs">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                    -->
+
+                        <!-- Wrapper for slides -->
+                    <!--
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="img-responsive img-full" src="img/slide-1.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="img/slide-2.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="img/slide-3.jpg" alt="">
+                            </div>
+                        </div>
+                    -->
+
+                        <!-- Controls -->
+                    <!--
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="icon-prev"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="icon-next"></span>
+                        </a>
+                    -->
+                    <h2 class="brand-before">
+                        <small>Welcome to</small>
+                    </h2>
+                    <h1 class="brand-name">GIF Canyon</h1>
+                    <hr class="tagline-divider">
+                    <h2>
+                        <small>By
+                            <strong>Sabrina &amp; Isa</strong>
+                        </small>
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="jumbotron text-center"  >
+			<div class="row" >
+				<div  class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+					<h1 class= "font-style" class="img-responsive text-center"  >GIF CANYON</h1>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<p class="lead">
+					
+				</p>
+			</div>
+			<div class="row">
+				<p>
+					<a class="btn btn-primary btn-lg" href="http://localhost:3000/#!/learnmore" target="_blank">Learn more</a>
+				</p>
 			</div>
 		</div>
-		<br>
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Browse & Upload animated GIFs!
+                    </h2>
+                    <hr>
+                <!--
+                    <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="">
+                -->
+                    <hr class="visible-xs">
+                    <p>GIF Canoyon is a place where you can find user uploaded animated GIFs of all kinds! Start browsing and creating by signing up!</p>
+                    <ul>
+						<li>
+							Click
+							<em>Signup</em>
+							to get started.
+						</li>
+						<li>
+							Set up your profile and upload your very own animated GIF.
+						</li>
+						<li>
+							Browse other people's GIFs and comment on them, share them and like them!
+						</li>
+						<li>
+							Have fun!
+						</li>
+						
+					</ul>
+			                    
+                </div>
+            </div>
+        </div>
+
+<!--browse vs create-->
 		<div class="row">
-			<p class="lead">
-				
-			</p>
-		</div>
-		<div class="row">
-			<p>
-				<a class="btn btn-primary btn-lg" href="http://localhost:3000/#!/learnmore" target="_blank">Learn more</a>
-			</p>
-		</div>
-	</div>
-	<div>
-		<h2>Browse & Upload animated GIFs!</h2>
-		<p>GIF Canoyon is a place where you can find user uploaded animated GIFs of all kinds! Start browsing and creating by signing up!</p>
-		
-		<ul>
-			<li>
-				Click
-				<em>Signup</em>
-				to get started.
-			</li>
-			<li>
-				Set up your profile and upload your very own animated GIF.
-			</li>
-			<li>
-				Broswe other people's GIFs and comment on them, share them and like them!
-			</li>
-			<li>
-				Have fun!
-			</li>
+
+			<center><a class="btn btn-primary btn-lg" href="http://localhost:3000/#!/stream" target="_blank">Browse</a>
+
+
+			<a class="btn btn-primary btn-lg" ng-show="authentication.user;" href="http://localhost:3000/#!/gifs/create" target="_blank">Create</a>
+			<a class="btn btn-primary btn-lg"  ng-hide="authentication.user;" href="http://localhost:3000/#!/signup" target="_blank">Create</a></center><br>
 			
-		</ul>
-	</div>
-	<div class="row">
-
-		<center><a class="btn btn-primary btn-lg" href="http://localhost:3000/#!/stream" target="_blank">Browse</a>
-
-
-		<a class="btn btn-primary btn-lg" ng-show="authentication.user;" href="http://localhost:3000/#!/gifIndex" target="_blank">Create</a>
-		<a class="btn btn-primary btn-lg"  ng-hide="authentication.user;" href="http://localhost:3000/#!/signup" target="_blank">Create</a></center><br>
-		<div class="col-md-3">
-
-			
-			<!--<h2>
-				<strong>M</strong>ongoDB
-			</h2>
-			<p><a target="_blank" href="http://mongodb.org/">MongoDB</a> is a database. MongoDB's <a target="_blank" href="http://docs.mongodb.org/manual/">great manual</a> is the place to get started with NoSQL and MongoDB.</p>-->
 		</div>
-		<!--<div class="col-md-3">
-			
-			<h2>
-				<strong>E</strong>xpress
-			</h2>
-			<p><a target="_blank" href="http://expressjs.com/"> Express</a> is an app server. Check out <a target="_blank" href="http://expressjs.com/4x/api.html">The ExpressJS API reference for more information</a> or <a target="_blank" href="http://stackoverflow.com/questions/8144214/learning-express-for-node-js">StackOverflow</a> for more info.</p>
-		</div>-->
-		<div class="col-md-3">
-			
-			<!--<h2>
-				<strong>A</strong>ngularJS
-			</h2>
-			<p>AngularJS is web app framework. <a target="_blank" href="http://angularjs.org/">Angular's website</a> offers a lot. The <a target="_blank" href="http://www.thinkster.io/">Thinkster Popular Guide</a> and <a target="_blank" href="https://egghead.io/">Egghead Videos</a> are great resources.</p>-->
-		</div>
-		<!--<div class="col-md-3">
-			<h2>
-				<strong>N</strong>ode.js
-			</h2>
-			<p><a target="_blank" href="http://nodejs.org/">Node.js</a> is a web server. Node's website and this <a target="_blank" href="http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js">stackOverflow thread</a> offer excellent starting points to get to grasps with node.</p>-->
-		</div>
-	</div>
 
-	
-	<div class="well">
-		<h2>Top GIFs</h2>
-		<p>
-			This is where most viewed or most liked GIFs will appear.
-			<!--<ul>
-				<li><a target="_blank" href="http://meanjs.org/docs.html">MEAN.JS Documentation</a>
-				</li>
-				<li><a target="_blank" href="http://meanjs.org/generator.html">Yeoman Generator</a>
-				</li>
-				<li><a target="_blank" href="http://meanjs.org/modules.html">Modules</a>
-				</li>
-				<li><a target="_blank" href="http://meanjs.org/changelog.html">Changelog</a>
-				</li>
-				<li><a target="_blank" href="http://meanjs.org/community.html">Community</a>
-				</li>
-				<li><a target="_blank" href="http://blog.meanjs.org">Blog</a>
-				</li>
-			</ul>-->
-		</p>
-	</div>
-	
+<!--TOP GIFS-->
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Top GIFs</strong>
+                    </h2>
+                    <hr>
+                    	<div class="container">
+
+					        <div class="row">
+
+					            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+					                <a class="thumbnail" href="#">
+					                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+					                </a>
+					            </div>
+					            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+					                <a class="thumbnail" href="#">
+					                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+					                </a>
+					            </div>
+					            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+					                <a class="thumbnail" href="#">
+					                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+					                </a>
+					            </div>
+					            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+					                <a class="thumbnail" href="#">
+					                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+					                </a>
+					            </div>
+					          
+					            
+					        </div>
+					    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Copyright &copy; GIF Canyon, Inc 2015</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--
 </section>
 <div class="footer">
 <br><center> © 2015 GIF Canyon, Inc.</center>
 </div>
+-->
