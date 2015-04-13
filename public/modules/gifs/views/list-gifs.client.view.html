@@ -1,0 +1,20 @@
+<section data-ng-controller="GifsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>GIFs</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="gif in gifs" data-ng-href="#!/gifs/{{gif._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="gif.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="gif.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="gif.name"></h4>
+			<image src="{{gif.image}}" style="max-width:100%" />
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!gifs.$resolved || gifs.length">
+    	No GIFs yet, why don't you <a href="/#!/gifs/create">create one</a>?
+    </div>
+</section>
