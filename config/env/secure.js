@@ -23,6 +23,7 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.min.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+				'lib/bootstrap/dist/css/gifstyle.css'
 			],
 			js: [
 				'public/lib/angular/angular.min.js',
@@ -34,7 +35,16 @@ module.exports = {
 			]
 		},
 		css: 'public/dist/application.min.css',
-		js: 'public/dist/application.min.js'
+		js: [ 'public/dist/application.min.js',
+			'public/swfobject_2.2.js',
+				'public/common.js',
+				'public/autotag.js',
+				'public/gif.js',
+				'public/gifgenerator.js',
+				'public/m.js',
+				'public/Slider.js',
+				'public/jquery.min.js'
+				]
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',

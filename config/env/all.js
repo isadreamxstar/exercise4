@@ -45,8 +45,8 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-				 'css/dependencies/prism.css',
-       'css/dependencies/select.css'
+				'lib/bootstrap/dist/css/gifstyle.css'
+				
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -55,7 +55,7 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
-				
+			
       	
        
 			]
@@ -67,17 +67,20 @@ module.exports = {
 			'public/config.js',
 			'public/application.js',
 			'public/modules/*/*.js',
-			'public/modules/*/*[!tests]*/*.js'
+			'public/modules/*/*[!tests]*/*.js',
+				'public/swfobject_2.2.js',
+				'public/common.js',
+				'public/autotag.js',
+				'public/gif.js',
+				'public/gifgenerator.js',
+				'public/m.js',
+				'public/jquery.min.js',	
+				'public/Slider.js'
 		],
 		tests: [
 			'public/lib/angular-mocks/angular-mocks.js',
-			'public/modules/*/tests/*.js',
-			'GIf uploader/js/dependencies/gifshot.min.js',
-      			'GIf uploader/js/dependencies/prism.min.js',
-    			'GIf uploader/js/dependencies/esprima.min.js',
-      			'GIf uploader/js/dependencies/escodegen.min.js',
-     			'GIf uploader/js/dependencies/lodash.min.js',
-     			'GIf uploader/js/demo.js'
+			'public/modules/*/tests/*.js'
+			
 		]
 	}
 };

@@ -22,6 +22,7 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.min.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+				'lib/bootstrap/dist/css/gifstyle.css'
 			],
 			js: [
 				'public/lib/angular/angular.min.js',
@@ -30,16 +31,21 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.min.js',
 				'public/lib/angular-ui-utils/ui-utils.min.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js'
+			
 			]
 		},
 		css: 'public/dist/application.min.css',
-		js: 'public/dist/application.min.js',
-		'GIf uploader/js/dependencies/gifshot.min.js',
-      			'GIf uploader/js/dependencies/prism.min.js',
-    			'GIf uploader/js/dependencies/esprima.min.js',
-      			'GIf uploader/js/dependencies/escodegen.min.js',
-     			'GIf uploader/js/dependencies/lodash.min.js',
-     			'GIf uploader/js/demo.js'
+		js: ['public/dist/application.min.js',
+				'public/swfobject_2.2.js',
+				'public/common.js',
+				'public/autotag.js',
+				'public/gif.js',
+				'public/gifgenerator.js',
+				'public/m.js',
+				'public/Slider.js',
+				'public/jquery.min.js'
+				]
+		
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',

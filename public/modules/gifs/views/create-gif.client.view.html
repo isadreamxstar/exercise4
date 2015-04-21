@@ -1,26 +1,408 @@
+
+     
+        <!-- Custom CSS styles -->
+       
+       <link rel="stylesheet" href="css/style.css">
+         <link rel="stylesheet" href="lib/bootstrap/dist/css/gifstyle.css">
+
+
+
+
+
+
+
+
+<section data-ng-controller="GifsController">
+<form class="form-horizontal" action="gifs/" method="post" enctype="multipart/form-data" novalidate>
+
+
+
+
+<div id="fb-root"></div>
+<div id="page" class="g">
+  <div class="head clearfix">
+    <h1>Animated GIF Generator<div class="gifgen-title-small">from images</div></h1>
+    <h2>Create custom animated GIFs from images.</h2>
+  </div>
+
+  <div id="images-or-video">
+    <a id="fromVideo" title="Make an animated gif from video" href="/images-to-gif">Video to GIF</a>
+    <a id="fromImages" title="Make an animated gif from images" href="/gifgenerator" class="on">Images to GIF</a>
+    <div id="gif-msg">
+      <img src='//s.imgflip.com/preloader.gif'/>
+      <span class="msg"></span>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+
+  <div id="igif" class="tab ibox g-media">
+
+    <div class="g-preview-section">
+      <div id="igif-upload" class="l but lrg file-button">Upload Images<input type="file" class="file-input" multiple  data-ng-model="imageHolder.image" id="image" accept="image/*" required /></div>
+      <div class="g-preview-wrap">
+        <canvas id="igif-preview"></canvas>
+      </div>
+    </div>
+
+    <div class="g-settings-section">
+      <div class="g-settings">
+        <p>
+          <span class="opt">Delay</span>
+          <input id="igif-delay" class="sml-input" type="number" min="1"/>
+          <span class="g-opt-label"> milliseconds</span>
+          <span id="delaySlide"></span>
+        </p>
+        <p>
+          <span class="opt">Width</span>
+          <input id="igif-width" class="sml-input" type="number" min="1" max="9999"/>
+          <span class="g-opt-label"> pixels</span>
+          <span id="wSlide"></span>
+        </p>
+        <p>
+          <span class="opt">Height</span>
+          <input id="igif-height" class="sml-input" type="number" min="1" max="9999"/>
+          <span class="g-opt-label"> pixels</span>
+          <span id="hSlide"></span>
+        </p>
+        <p>
+          <span class="opt">Quality</span>
+          <input id="igif-quality" class="sml-input" type="number" min="1" max="10"/>
+          <span class="g-opt-label"> 1 is best</span>
+          <span id="qualitySlide"></span>
+        </p>
+
+        <p>
+          <span class="g-add-text l but med">Add text to GIF</span>
+          <span class="g-crop l but med">Crop GIF</span>
+          <span class="g-rotate l but med">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve"><path d="M41.038,24.1l-7.152,9.342L26.734,24.1H31.4c-0.452-4.397-4.179-7.842-8.696-7.842c-4.82,0-8.742,3.922-8.742,8.742 s3.922,8.742,8.742,8.742c1.381,0,2.5,1.119,2.5,2.5s-1.119,2.5-2.5,2.5c-7.576,0-13.742-6.165-13.742-13.742 s6.166-13.742,13.742-13.742c7.274,0,13.23,5.686,13.697,12.842H41.038z"/></svg>
+            Rotate GIF
+          </span>
+          <label><input class="g-reverse" type="checkbox" name="reverse"/> Reverse GIF</label>
+        </p>
+
+        <div class="g-overlay-settings">
+          <div class="mm-opts">
+            <div class="mm-opt">
+              Font
+              <select class="mm-font">
+                <option value="impact">Impact</option>
+                <option value="arial">Arial</option>
+                <option value="comic sans ms">Comic Sans</option>
+              </select>
+            </div>
+            <div class="mm-opt">Maxsize <input class="mm-size" type="number" name="size" value="50" min="1" max="999"/></div>
+            <input type="checkbox" class="mm-use-shadow" checked/>            <div class="mm-opt mm-nocaps l but sml">No Caps</div>
+            <div class="mm-opt mm-another-text y but sml">Add Another Textbox</div>
+            <label class="mm-opt"><input type="checkbox" class="mm-toggle-drag"/> Enable drag/drop & resize</label>
+          </div>
+          <div class="mm-text-boxes"></div>
+        </div>
+
+        <p>
+          <span class="opt">Title</span>
+          <input id="igif-title" type="text" maxlength="128" placeholder="Enter a clever title for your gif!"/>
+        </p>
+        <p>
+          <span class="opt">Tags</span>
+          <input id="igif-tags" type="text" maxlength="128" value="gifs"/>
+        </p>
+     
+
+        <div class="gen-wrap">
+         
+         
+          <div id="make-gif" class="b but">Generate GIF</div>
+          <div class="reset l but">Reset</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="bottom">
+      <div id="arrangeTitle">Arrange Your Images</div>
+      <div id="igif-auto-arrange" class="l but sml">Auto Arrange</div>
+      <div id="igif-arrange" class="clearfix"></div>
+      <div id="igif-remove">Drag images here to remove</div>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+
+
+
+  
+</div>
+
+</form>
+
+  
+<script>
+igif.init();
+</script>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+<script>
+a=new XMLHttpRequest();
+a.onload=function(){I=JSON.parse(this.responseText);if(window.initData)initData();};
+a.open('get','//imgflip.com/ajax_get_le_data'+(window.img?'?i='+img.id:''),true);
+a.send();
+</script>
+       
+
+
+    
+
+
+
+
+
+<div id="page" class="g">
+  <div class="head clearfix">
+    <h1>Animated GIF Generator<div class="gifgen-title-small">from images</div></h1>
+    <h2>Create custom animated GIFs from images.</h2>
+  </div>
+
+  <div id="images-or-video">
+    <a id="fromVideo" title="Make an animated gif from video" href="/gifgenerator">Video to GIF</a>
+    <a id="fromImages" title="Make an animated gif from images" href="/images-to-gif" class="on">Images to GIF</a>
+    <div id="gif-msg">
+      <img src='//s.imgflip.com/preloader.gif'/>
+      <span class="msg"></span>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+
+  <div id="igif" class="tab ibox g-no-media">
+
+    <div class="g-preview-section">
+      <div id="igif-upload" class="l but lrg file-button">Upload Images<input data-ng-model="gifHolder.gif" class="file-input" id="gif" accept="gif/*" required type="file" multiple/></div>
+      <div class="g-preview-wrap">
+        <canvas id="igif-preview"></canvas>
+      </div>
+    </div>
+
+    <div class="g-settings-section">
+      <div class="g-settings">
+        <p>
+          <span class="opt">Delay</span>
+          <input id="igif-delay" class="sml-input" type="number" min="1"/>
+          <span class="g-opt-label"> milliseconds</span>
+          <span id="delaySlide"></span>
+        </p>
+        <p>
+          <span class="opt">Width</span>
+          <input id="igif-width" class="sml-input" type="number" min="1" max="9999"/>
+          <span class="g-opt-label"> pixels</span>
+          <span id="wSlide"></span>
+        </p>
+        <p>
+          <span class="opt">Height</span>
+          <input id="igif-height" class="sml-input" type="number" min="1" max="9999"/>
+          <span class="g-opt-label"> pixels</span>
+          <span id="hSlide"></span>
+        </p>
+        <p>
+          <span class="opt">Quality</span>
+          <input id="igif-quality" class="sml-input" type="number" min="1" max="10"/>
+          <span class="g-opt-label"> 1 is best</span>
+          <span id="qualitySlide"></span>
+        </p>
+
+        <p>
+          <span class="g-add-text l but med">Add text to GIF</span>
+          <span class="g-crop l but med">Crop GIF</span>
+          <span class="g-rotate l but med">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve"><path d="M41.038,24.1l-7.152,9.342L26.734,24.1H31.4c-0.452-4.397-4.179-7.842-8.696-7.842c-4.82,0-8.742,3.922-8.742,8.742 s3.922,8.742,8.742,8.742c1.381,0,2.5,1.119,2.5,2.5s-1.119,2.5-2.5,2.5c-7.576,0-13.742-6.165-13.742-13.742 s6.166-13.742,13.742-13.742c7.274,0,13.23,5.686,13.697,12.842H41.038z"/></svg>
+            Rotate GIF
+          </span>
+          <label><input class="g-reverse" type="checkbox" name="reverse"/> Reverse GIF</label>
+        </p>
+
+        <div class="g-overlay-settings">
+          <div class="mm-opts">
+            <div class="mm-opt">
+              Font
+              <select class="mm-font">
+                <option value="impact">Impact</option>
+                <option value="arial">Arial</option>
+                <option value="comic sans ms">Comic Sans</option>
+              </select>
+            </div>
+            <div class="mm-opt">Maxsize <input class="mm-size" type="number" name="size" value="50" min="1" max="999"/></div>
+            <input type="checkbox" class="mm-use-shadow" checked/>            <div class="mm-opt mm-nocaps l but sml">No Caps</div>
+            <div class="mm-opt mm-another-text y but sml">Add Another Textbox</div>
+            <label class="mm-opt"><input type="checkbox" class="mm-toggle-drag"/> Enable drag/drop & resize</label>
+          </div>
+          <div class="mm-text-boxes"></div>
+        </div>
+
+        <p>
+          <span class="opt">Title</span>
+          <input id="igif-title" type="text" maxlength="128" placeholder="Enter a clever title for your gif!"/>
+        </p>
+        <p>
+          <span class="opt">Tags</span>
+          <input id="igif-tags" type="text" maxlength="128" value="gifs"/>
+        </p>
+        <p class="pro-callout">Want unlimited width/height? Check out <a href="/pro?from=igif_max_width_inline">Imgflip Pro</a>!</p>
+
+        <div class="gen-wrap">
+         
+          <p><label>
+              <input type="checkbox" class="gen-private" name="private" value="1"/> Private <small>(you'll have to download your animated gif to save or share it)</small>
+            </label></p>
+          <p class="gen-anon-wrap"><label>
+              <input type="checkbox" class="gen-anon" name="anon" value="1"/>
+       
+          <div id="make-gif" class="b but">Generate GIF</div>
+          <div class="reset l but">Reset</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="bottom">
+      <div id="arrangeTitle">Arrange Your Images</div>
+      <div id="igif-auto-arrange" class="l but sml">Auto Arrange</div>
+      <div id="igif-arrange" class="clearfix"></div>
+      <div id="igif-remove">Drag images here to remove</div>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+
+
+
+
+
+
+<script>
+igif.init();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section data-ng-controller="GifsController">
     <div class="page-header">
-        <h1>New GIF</h1>
+        <!-- fixed-title
+        <nav class="fixed-title text-center" role="navigation">
+      
+      <div class="col-md-12">
+         <form class="form-horizontal" action="gifs/" method="post" enctype="multipart/form-data" novalidate>
+          
+          <!-- main-header 
+         
+        </nav>
+      <!-- demo-section  
+         <h1>New GIF</h1>
     </div>
-    <div class="col-md-12">
-        <form class="form-horizontal" action="gifs/" method="post" enctype="multipart/form-data" novalidate>
-            <fieldset>
-                <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
+  
+ <fieldset>
+               <div class="form-group">
+
+
+
+
+
+
+
+
+
+                    <label class="control-label" for="name"></label>
                     <div class="controls">
-                        <input type="text" name="name" class="form-control" placeholder="Name" required>
+                        <input type="text" name="name" class="form-control" placeholder="Title" required>
                     </div>
                 </div>
+        <!--
         <input type="file" name="image" data-ng-model="imageHolder.image" id="image" accept="image/*" required/><br/>
 
                 <div class="form-group">
                     <input type="submit" class="btn btn-default">
                 </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
+        <div data-ng-show="error" class="text-danger">
+          <strong data-ng-bind="error"></strong>
+        </div>
 
             </fieldset>
         </form>
     </div>
-</section>
+</section>-->
