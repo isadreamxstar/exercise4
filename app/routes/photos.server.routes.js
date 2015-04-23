@@ -1,9 +1,12 @@
 'use strict';
-
+/**
+ * Module dependencies.
+ */
+  var users = require('../../app/controllers/users.server.controller'),
+   photos = require('../../app/controllers/photos.server.controller'),
+   multer = require('multer');
 module.exports = function(app) {
-  var users = require('../../app/controllers/users.server.controller');
-  var photos = require('../../app/controllers/photos.server.controller');
-  var multer = require('multer');
+
   
   app.use(multer({ dest:'./public/uploads'}));
   // Photos Routes

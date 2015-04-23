@@ -28,7 +28,12 @@ exports.create = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.redirect('/#!/photos/'+photo._id); // redirection to '/'jsonp(photo);
+			res.redirect('/#!/photos/'+photo._id); 
+
+			//var socketio = req.app.get('socketio'); // tacke out socket instance from the app container
+			//socketio.sockets.emit('photo.liked', photo); // emit an event for all connected clients
+			//res.json(photo);
+		// redirection to '/'jsonp(photo);
 		}
 	});
 };
