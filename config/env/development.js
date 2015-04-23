@@ -18,7 +18,7 @@ module.exports = {
 		}
 	},
 	app: {
-		title: 'GIF Canyon'
+		title: 'Filter Canyon'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
