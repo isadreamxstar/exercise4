@@ -16,7 +16,7 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 		});
 		Socket.on('article.created', function(article) {
 			console.log(article+'header section');
-                  $rootScope.myValue=true;
+                  $scope.myValue=true;
 		});
 	}
 ]);
