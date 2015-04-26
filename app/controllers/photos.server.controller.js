@@ -16,7 +16,7 @@ exports.create = function(req, res) {
   console.log(req.files);
   var photo = new Photo(req.body);
   photo.user = req.user;
-  //photo.likes.push(req.user._id);
+  photo.likes.push(req.user._id);
   if(req.files.image) {
     photo.image =req.files.image.path.substring(7);
     console.log(photo.image);
@@ -30,11 +30,6 @@ exports.create = function(req, res) {
 			});
 		} else {
 			res.redirect('/#!/photos/'+photo._id); 
-
-			//var socketio = req.app.get('socketio'); // tacke out socket instance from the app container
-			//socketio.sockets.emit('photo.liked', photo); // emit an event for all connected clients
-			//res.json(photo);
-		// redirection to '/'jsonp(photo);
 		}
 	});
 };
