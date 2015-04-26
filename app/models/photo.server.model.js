@@ -35,10 +35,6 @@ var PhotoSchema = new Schema({
 	likes: {
 		type: Number,
 		default: 0
-	},
-	mostLiked: {
-		type: Number,
-		default: 0
 	}
 });
 

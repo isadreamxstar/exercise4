@@ -3,20 +3,21 @@
 
         <h1>Photo Stream Gallery</h1>
     </div>
-    <div class="list-group">
-        <a data-ng-repeat="photo in photos" data-ng-href="#!/photos/{{photo._id}}" class="list-group-item">
+    <div class="list-group col-lg-3 col-md-4 col-xs-6 thumb">
+        <a data-ng-repeat="photo in photos" data-ng-href="#!/photos/{{photo._id}}" class="list-group-item thumbnail">
             <small class="list-group-item-text">
-                Posted on
-                <span data-ng-bind="photo.created | date:'medium'"></span>
+               <!-- Posted on
+                <span data-ng-bind="photo.created | date:'medium'"></span>-->
+                 <h4 class="list-group-item-heading" data-ng-bind="photo.name"></h4>
                 by
                 <span data-ng-bind="photo.user.displayName"></span>
             </small>
-            <h4 class="list-group-item-heading" data-ng-bind="photo.name"></h4>
-            <image src="{{photo.image}}" style="max-width:10%" />
+           
+            <image src="{{photo.image}}" style="max-width:100%" />
         </a>
     </div>
 
-        <div class="row">
+       <!-- <div class="row">
 
             <div class="col-lg-12">
                 <h1 class="page-header">Photo Stream Gallery</h1>
@@ -84,7 +85,7 @@
             </div>
         </div>
 
-
+-->
 
 
 
