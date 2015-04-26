@@ -2,8 +2,8 @@
 
 //note addition of $http
 angular.module('photos')
-.controller('PhotosController', ['$scope', '$stateParams', '$location', '$http', 'Authentication', 'Photos',  
-	function($scope, $stateParams, $location, $http, Authentication, Photos) {
+.controller('PhotosController', ['$scope', '$stateParams', '$location', '$http', 'Socket', 'Authentication', 'Photos',  
+	function($scope, $stateParams, $location, $http, Socket, Authentication, Photos) {
 	  $scope.authentication = Authentication;
 
 	  $scope.likes = 0;
@@ -32,9 +32,7 @@ angular.module('photos')
 		$scope.photos.splice($index,1);
 	  };
 
-	//  Socket.on('photo.liked', function(photo) {
-	//	    console.log(photo);
-	//	});
+	  
 	  // Remove existing Photo
 	  $scope.remove = function(photo) {
 	    if ( photo ) { 
@@ -62,6 +60,10 @@ angular.module('photos')
 		 $scope.error = errorResponse.data.message;
 	       });
 	  };
+	  //notify socket when updated
+	  Socket.on('photo.updated', function(photo) {
+		    console.log('photo updated');
+		});
 
 	  // Find a list of Photos
 	  $scope.find = function() {
