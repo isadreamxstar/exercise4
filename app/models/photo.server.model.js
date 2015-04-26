@@ -44,7 +44,7 @@ var PhotoSchema = new Schema({
 
 
 var FilterSchema = new Schema({
- 	filter:{
+ 	type:{
  		type: Schema.ObjectId,
 		ref: 'User'
  }

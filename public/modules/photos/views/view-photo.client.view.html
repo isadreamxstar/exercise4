@@ -20,21 +20,25 @@
 			<span data-ng-bind="photo.user.displayName"></span>
 		</h2>
 		</div>
-		<div>
-		<h2>
-			Likes: <span data-ng-bind="photo.likes"></span>
-			Views: <span data-ng-bind="photo.views"></span>
-		</h2>
-		</div>
+		
 		<div>
 		<h2>
 			<button class="btn btn-success" ng-click="likeThis()" id="btn-like" data-id="{{ image.uniqueId }}"  ng-show="!isLiked && authentication.user._id"><i class="fa fa-heart">Like</i></button>
 			
 		</h2>
 		</div>
-		<div class="page-body">
-			<image ng-src="{{photo.image}}"/>
+		<div class="page-body" style="max-width:70%">
+			<image ng-src="{{photo.image}}" style="max-width:100%"/>
 
 		</div>
+		<div >
+		<h2>
+			Likes: <span data-ng-bind="photo.likes"></span>
+			Views: <span data-ng-bind="photo.views"></span>
+
+		</h2>
+		</div>
+
 	</div>
+
 </section>
