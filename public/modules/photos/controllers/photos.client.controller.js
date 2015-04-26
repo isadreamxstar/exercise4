@@ -28,9 +28,9 @@ angular.module('photos')
             
 	  };
 	  //Swipe to remove photo from display
-	  $scope.hide = function($index) {
-		$scope.photos.splice($index,1);
-	  };
+	  //$scope.hide = function($index) {
+		//$scope.photos.splice($index,1);
+	  //};
 
 	  
 	  // Remove existing Photo
@@ -98,17 +98,25 @@ angular.module('photos')
 	  //Like a photo
 	 
 	  $scope.likeThis = function() {
+	  	$scope.photo.likes +=1;
 	    var photo = $scope.photo;
 	    $http.put('photos/like/' + photo._id).success(function() {
               // Update the photo with our user ID.
               photo.likes.push($scope.authentication.user._id);
-             
               $scope.isLiked=true;
 
 	    });
+	    console.log('like function called');
+			//saves the photo -- note the authorization problem in this version
+			photo.$update(function() {
+				$location.path('photos/' + photo._id);
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
 
          };  
         }])
+/*
 .directive('fileModel', ['$parse', function ($parse) {
     return {
         restrict: 'A',
@@ -125,3 +133,4 @@ angular.module('photos')
     };
     	
 }]);
+*/
