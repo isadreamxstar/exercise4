@@ -22,5 +22,9 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
 			console.log(photo);
                   $rootScope.updateValue=true;
 		});
+		Socket.on('photo.liked', function(photo) {
+			console.log(photo);
+                  $rootScope.likedValue=true;
+		});
 	}
 ]);

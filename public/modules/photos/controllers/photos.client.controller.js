@@ -64,6 +64,10 @@ angular.module('photos')
 	  Socket.on('photo.updated', function(photo) {
 		    console.log('photo updated');
 		});
+	  //notify when liked
+	   Socket.on('photo.liked', function(photo) {
+		    console.log('photo liked');
+		});
 
 	  // Find a list of Photos
 	  $scope.find = function() {
@@ -116,7 +120,7 @@ angular.module('photos')
 
          };  
         }])
-/*
+
 .directive('fileModel', ['$parse', function ($parse) {
     return {
         restrict: 'A',
@@ -133,4 +137,3 @@ angular.module('photos')
     };
     	
 }]);
-*/
