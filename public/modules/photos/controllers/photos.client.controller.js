@@ -94,7 +94,7 @@ angular.module('photos')
               function(){console.log('error');});
 
 	  };
-          
+         
 	  //Like a photo
 	 
 	  $scope.likeThis = function() {

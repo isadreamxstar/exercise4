@@ -5,7 +5,7 @@ angular.module('photos').config(['$stateProvider',
 	function($stateProvider) {
 		// Photos state routing
 		$stateProvider.
-		state('listPhotos', {
+		state('MyPhotos', {
 			url: '/photos',
 			templateUrl: 'modules/photos/views/list-photos.client.view.html'
 		}).

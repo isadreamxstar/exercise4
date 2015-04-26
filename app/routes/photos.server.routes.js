@@ -29,6 +29,10 @@ module.exports = function(app) {
 
 	// Finish by binding the Photo middleware
 	app.param('photoId', photos.photoByID);
+
+
+      
+   
 	
 };
 	

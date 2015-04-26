@@ -10,17 +10,13 @@ var mongoose = require('mongoose'),
 	_ = require('lodash');
 
 
+
+
+
  exports.filter = function(req, res) {
-var imageFilter = new Jimp('/#!/photos/', function () {
-    this.resize(10, 10) // resize
-        .write('/#!/photos/') // save
-        .quality(60) // set JPEG quality
-        .write('/#!/photos/') // save as JPEG
-        .greyscale() // set greyscale
-        .write('/#!/photos/') // save again
-        .crop(80, 100, 80, 50) // crop
-        .write('/#!/photos/'); // save again
-   
+var imageFilter = new Jimp(req.body, function () {
+    imageFilter.opacity(); // apply an opacity of 0-1 to the image
+
 });
 };
 
@@ -32,7 +28,7 @@ exports.create = function(req, res) {
   console.log(req.files);
   var photo = new Photo(req.body);
   photo.user = req.user;
-  photo.likes.push(req.user._id);
+  //photo.likes.push(req.user._id);
   if(req.files.image) {
     photo.image =req.files.image.path.substring(7);
     console.log(photo.image);
