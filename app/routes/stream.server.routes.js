@@ -11,8 +11,8 @@ module.exports = function(app) {
   app.use(multer({ dest:'./public/uploads'}));
   // Photos Routes
   app.route('/stream')
-		.get(photos.list)
-		.post(photos.image);
+		.get(photos.list);
+		
 
 	app.route('/photos/:photoId')
 		.get(photos.read);
