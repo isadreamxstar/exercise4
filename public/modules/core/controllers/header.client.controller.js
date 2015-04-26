@@ -20,7 +20,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
 		});
 		Socket.on('photo.updated', function(photo) {
 			console.log(photo);
-                  $rootScope.myValue=true;
+                  $rootScope.updateValue=true;
 		});
 	}
 ]);
