@@ -18,5 +18,9 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
 			console.log(article);
                   $rootScope.myValue=true;
 		});
+		Socket.on('photo.updated', function(photo) {
+			console.log(photo);
+                  $rootScope.myValue=true;
+		});
 	}
 ]);

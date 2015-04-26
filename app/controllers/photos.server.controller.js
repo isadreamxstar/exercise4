@@ -97,6 +97,8 @@ exports.update = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
+			var socketio = req.app.get('socketio'); // tacke out socket instance from the app container
+			socketio.sockets.emit('photo.updated', photo); // emit an event for all connected clients
 			res.jsonp(photo);
 		}
 	});
@@ -114,6 +116,7 @@ exports.delete = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
+			
 			res.jsonp(photo);
 		}
 	});
