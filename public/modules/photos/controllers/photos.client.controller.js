@@ -116,7 +116,7 @@ angular.module('photos')
 
          };  
         }])
-/*
+
 .directive('fileModel', ['$parse', function ($parse) {
     return {
         restrict: 'A',
@@ -133,4 +133,3 @@ angular.module('photos')
     };
     	
 }]);
-*/
