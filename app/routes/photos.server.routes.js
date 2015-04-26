@@ -19,7 +19,34 @@ module.exports = function(app) {
 		.put(users.requiresLogin, photos.hasAuthorization, photos.update)
 		.delete(users.requiresLogin, photos.hasAuthorization, photos.delete);
 
+
+			//adds a route for likes
+
+ 
+ // app.route('/photos/like/:photoId')
+       // .put(users.requiresLogin, photos.like);
+
+
 	// Finish by binding the Photo middleware
 	app.param('photoId', photos.photoByID);
 	
 };
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

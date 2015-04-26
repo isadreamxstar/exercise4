@@ -72,7 +72,8 @@ angular.module('photos')
 	  $scope.findOne = function() {
 	    $scope.photo = Photos.get({ 
 	      photoId: $stateParams.photoId
-	    },function(){
+	    },
+	    function(){
                 var user = $scope.authentication.user;
                 var containsValue=false;
                 if($scope.authentication.user) {
@@ -86,11 +87,14 @@ angular.module('photos')
 					}
 				}
                 $scope.isLiked = containsValue;
-              },function(){console.log('error');});
+              },
+
+              function(){console.log('error');});
 
 	  };
           
 	  //Like a photo
+	 
 	  $scope.likeThis = function() {
 	    var photo = $scope.photo;
 	    $http.put('photos/like/' + photo._id).success(function() {
@@ -101,7 +105,7 @@ angular.module('photos')
 
 	    });
 
-         };   
+         };  
         }])
 .directive('fileModel', ['$parse', function ($parse) {
     return {

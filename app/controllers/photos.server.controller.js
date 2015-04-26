@@ -16,6 +16,7 @@ exports.create = function(req, res) {
   console.log(req.files);
   var photo = new Photo(req.body);
   photo.user = req.user;
+  //photo.likes.push(req.user._id);
   if(req.files.image) {
     photo.image =req.files.image.path.substring(7);
     console.log(photo.image);
@@ -51,6 +52,35 @@ exports.read = function(req, res) {
 		} else 
 			res.jsonp(req.photo);
 		});
+};
+
+
+/**
+ * Likes a photo
+ */
+exports.like = function(req, res) {
+  var user = req.user;
+  var containsValue = false;
+
+  // Determine if user is already in 
+  for(var i=0; i<req.photo.likes.length; i++) {
+    console.log('Comparing ' + req.photo.likes[i] + ' to ' + req.user._id + ' is ' + req.photo.likes[i].equals(req.user._id));
+    if(req.photo.likes[i].equals(req.user._id)) {
+      containsValue = true;
+    }
+  }
+  if(!containsValue) {
+	req.photo.likes.push(req.user._id);
+  }
+  req.photo.save(function(err) {
+    if (err) {
+      return res.status(400).send({
+		message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.jsonp(req.photo);
+	 }
+  });
 };
 
 /**
