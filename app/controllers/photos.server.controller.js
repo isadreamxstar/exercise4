@@ -5,8 +5,24 @@
  */
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
+	Jimp = require('jimp'),
 	Photo = mongoose.model('Photo'),
 	_ = require('lodash');
+
+
+ exports.filter = function(req, res) {
+var imageFilter = new Jimp('/#!/photos/', function () {
+    this.resize(10, 10) // resize
+        .write('/#!/photos/') // save
+        .quality(60) // set JPEG quality
+        .write('/#!/photos/') // save as JPEG
+        .greyscale() // set greyscale
+        .write('/#!/photos/') // save again
+        .crop(80, 100, 80, 50) // crop
+        .write('/#!/photos/'); // save again
+   
+});
+};
 
 /**
  * Create a Photo

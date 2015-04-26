@@ -38,4 +38,14 @@ var PhotoSchema = new Schema({
 	}
 });
 
+
+var FilterSchema = new Schema({
+ 	filter:{
+ 		type: Schema.ObjectId,
+		ref: 'User'
+ }
+});
+
+mongoose.model('Filter', FilterSchema);
+
 mongoose.model('Photo', PhotoSchema);

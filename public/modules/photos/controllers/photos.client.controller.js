@@ -115,7 +115,7 @@ angular.module('photos')
 			});
 
          };  
-        }])
+        }]);
 /*
 .directive('fileModel', ['$parse', function ($parse) {
     return {
