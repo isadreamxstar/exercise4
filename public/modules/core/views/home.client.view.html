@@ -139,7 +139,7 @@
 
 
       <div  data-ng-init="find()" data-id="{{ image.uniqueId }}" >
-        <a data-ng-repeat="photo in photos | orderBy:'-likes' | limitTo: 3" data-ng-href="#!/photos/{{photo._id}}" class="thumbnail topView" >
+        <a data-ng-repeat="photo in photos | orderBy:'-created' | limitTo: 3" data-ng-href="#!/photos/{{photo._id}}" class="thumbnail topView" >
             <small class="list-group-item-text">
               
                

@@ -4,7 +4,7 @@
         <h1>Photo Stream Gallery</h1>
     </div>
     <div class="">
-        <a data-ng-repeat="photo in photos" data-ng-href="#!/photos/{{photo._id}}" class="list-group-item thumbnail streamPhoto">
+        <a data-ng-repeat="photo in photos | orderBy:'-likes' | limitTo: 9" data-ng-href="#!/photos/{{photo._id}}" class="list-group-item thumbnail streamPhoto">
             <small class="list-group-item-text">
                <!-- Posted on
                 <span data-ng-bind="photo.created | date:'medium'"></span>-->
