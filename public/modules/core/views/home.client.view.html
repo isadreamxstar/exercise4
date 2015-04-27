@@ -129,17 +129,17 @@
                     <hr>
                     	<div class="container" >
 
-					        <div class="row">
+					        <!--<div class="row">-->
 
 
-<div ng-controller="PhotosController" class="col-lg-3 col-md-4 col-xs-6 thumb" >
+<div ng-controller="PhotosController" >
 
 
   
 
 
       <div  data-ng-init="find()" data-id="{{ image.uniqueId }}" >
-        <a data-ng-repeat="photo in photos | orderBy:'-likes'" data-ng-href="#!/photos/{{photo._id}}" class="thumbnail">
+        <a data-ng-repeat="photo in photos | orderBy:'-likes'" data-ng-href="#!/photos/{{photo._id}}" class="thumbnail topView" >
             <small class="list-group-item-text">
                 Posted on
                 <span data-ng-bind="photo.created | date:'medium'"></span>
@@ -148,13 +148,13 @@
                 LIKES: <span data-ng-bind="photo.likes"></span>
             </small>
             <h4 class="list-group-item-heading" data-ng-bind="photo.name"></h4>
-            <image src="{{photo.image}}" style="max-width:100%" />
+            <image src="{{photo.image}}" style="max-width:100%"  />
         </a>
     </div>
    
     
   
-</div>
+<!--</div>-->
 
 
         <!--
