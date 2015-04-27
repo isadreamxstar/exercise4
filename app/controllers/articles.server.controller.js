@@ -1,12 +1,14 @@
 'use strict';
 
+
 /**
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Article = mongoose.model('Article'),
-	_ = require('lodash');
+	_ = require('lodash'),
+	emoji = require('node-emoji');
 
 /**
  * Create a article
@@ -14,6 +16,7 @@ var mongoose = require('mongoose'),
 exports.create = function(req, res) {
 	var article = new Article(req.body);
 	article.user = req.user;
+
 
 	article.save(function(err) {
 		if (err) {
@@ -27,6 +30,18 @@ exports.create = function(req, res) {
 		}
 	});
 };
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Show the current article

@@ -7,17 +7,21 @@ var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Jimp = require('jimp'),
 	Photo = mongoose.model('Photo'),
+	Filter = mongoose.model('Filter'),
 	_ = require('lodash');
 
 
 
 
+  exports.filter = function(req,res){
 
- exports.filter = function(req, res) {
-var imageFilter = new Jimp(req.body, function () {
-    imageFilter.opacity(); // apply an opacity of 0-1 to the image
-
-});
+	var photo = req.photo ;
+	var invertImage = req.filters ;
+	photo = _.extend(photo , req.body);
+	console.log('The server controller filter export is being accessed.');
+	invertImage = new Jimp('/#!/photos/'+photo._id +'/edit', function (req,res) {
+  	this.invert(); 
+	});
 };
 
 /**
@@ -26,9 +30,12 @@ var imageFilter = new Jimp(req.body, function () {
 exports.create = function(req, res) {
   console.log(req.body);
   console.log(req.files);
+  
   var photo = new Photo(req.body);
   photo.user = req.user;
   //photo.likes.push(req.user._id);
+
+
   if(req.files.image) {
     photo.image =req.files.image.path.substring(7);
     console.log(photo.image);

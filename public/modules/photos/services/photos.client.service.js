@@ -13,3 +13,4 @@ angular.module('photos').factory('Photos', ['$resource',
 		});
 	}
 ]);
+

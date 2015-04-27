@@ -40,9 +40,9 @@ var PhotoSchema = new Schema({
 
 
 var FilterSchema = new Schema({
- 	type:{
- 		type: Schema.ObjectId,
-		ref: 'User'
+ 	invertImage:{
+ 		type: String,
+        default: ''
  }
 });
 

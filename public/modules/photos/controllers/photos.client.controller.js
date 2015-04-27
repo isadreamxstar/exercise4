@@ -2,19 +2,27 @@
 
 //note addition of $http
 angular.module('photos')
-.controller('PhotosController', ['$scope', '$stateParams', '$location', '$http', 'Socket', 'Authentication', 'Photos',  
+.controller('PhotosController', ['$scope', '$stateParams', '$location', '$http', 'Socket', 'Authentication', 'Photos', 
 	function($scope, $stateParams, $location, $http, Socket, Authentication, Photos) {
 	  $scope.authentication = Authentication;
 
 	  $scope.likes = 0;
 	  $scope.isLiked = false;
+
+
+
+
+
+
+
 		// Create new Photo
 
 	  $scope.create = function() {
 	    // Create new Photo object
 	    var photo = new Photos ({
 	      name: $scope.imageName,
-              file: $scope.imageFile
+              file: $scope.imageFile,
+
 	    });
 	    photo.$save(function(response) {
 	      $location.path('photos/' + response._id);
@@ -95,6 +103,10 @@ angular.module('photos')
 
 	  };
          
+
+
+
+   
 	  //Like a photo
 	 
 	  $scope.likeThis = function() {
@@ -106,6 +118,8 @@ angular.module('photos')
               $scope.isLiked=true;
 
 	    });
+
+	    
 	    console.log('like function called');
 			//saves the photo -- note the authorization problem in this version
 			photo.$update(function() {
@@ -133,4 +147,40 @@ angular.module('photos')
     };
     	
 }]);
-*/
+
+
+*/      
+
+angular.module('filters')
+.controller('FiltersController', ['$scope','$http', '$location',  '$stateParams', 'Authentication', 'Filter', 
+	function($scope,$http, $location, $stateParams,   Authentication, Filter) {
+	  $scope.authentication = Authentication;
+
+
+ $scope.filterThis = function() {
+ 		var photo = $scope.photo;	
+	    var filters = $scope.filters;
+
+	    $http.put('photos/' + photo._id +'/edit').success(function() {
+              // Update the photo with our user ID.
+              filters.invertImage.push($scope.authentication.user._id);
+           
+
+	    });
+
+	    
+	    console.log('The filterThis function called and client controller filter scope is being accessed');
+			//saves the photo -- note the authorization problem in this version
+			photo.$update(function() {
+				$location.path('photos/' + photo._id + '/edit');
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+
+
+          	
+
+	
+	
+	};
+}]);

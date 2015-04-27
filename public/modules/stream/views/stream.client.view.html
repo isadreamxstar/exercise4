@@ -8,10 +8,10 @@
             <small class="list-group-item-text">
                <!-- Posted on
                 <span data-ng-bind="photo.created | date:'medium'"></span>-->
-                 <h4 class="list-group-item-heading" data-ng-bind="photo.name"></h4>
+                 <h4 class="list-group-item-heading" data-ng-bind="photo.name"></h4><br>
                 by
                 <span data-ng-bind="photo.user.displayName"></span>
-            </small>
+            </small><br>
            
             <image src="{{photo.image}}" style="max-width:100%" />
         </a>
@@ -89,7 +89,15 @@
 
 
 
-
+ <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Copyright &copy; Filter Canyon, Inc 2015</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
         
 </section>

@@ -4,7 +4,7 @@
 	<div class="container">
 
         <div class="row">
-            <div class="box">
+        
                 <div class="col-lg-12 text-center">
                 	<!--
                     <div id="carousel-example-generic" class="carousel slide">
@@ -53,7 +53,7 @@
                         </small>
                     </h2>
                 </div>
-            </div>
+           
         </div>
 
         <div class="jumbotron text-center"  >
@@ -62,28 +62,27 @@
 					<h1 class= "font-style" class="img-responsive text-center"  >FILTER CANYON</h1>
 				</div>
 			</div>
-			<br>
+			
 			<div class="row">
 				<p class="lead">
-					
+					<hr>
+                    <h2 class="intro-text text-center">Browse, upload and edit photos!
+                    </h2>
+                    <hr>
 				</p>
 			</div>
 			<div class="row">
 				<p>
-					<a class="btn btn-primary btn-lg" href="http://localhost:3000/#!/learnmore" target="_blank">Learn more</a>
+					<a class="btn btn-primary btn-lg" href="#!/learnmore" >Learn more</a>
 				</p>
 			</div>
 		</div>
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">Browse, upload and edit photos!
-                    </h2>
-                    <hr>
-                <!--
+     
+                
+                    
+                <!--<div class="col-lg-12">
                     <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="">
-                -->
+               
                     <hr class="visible-xs">
                     <p>Filter Canoyon is a place where you can find user uploaded photos of all kinds! Start browsing and creating by signing up!</p>
                     <ul>
@@ -102,29 +101,30 @@
 							Have fun!
 						</li>
 						
-					</ul>
+					</ul> </div>  -->
 			                    
-                </div>
-            </div>
-        </div>
+                          
+         
 
 <!--browse vs create-->
 		<div class="row">
 
-			<center><a class="btn btn-primary btn-lg" href="http://localhost:3000/#!/stream" target="_blank">Browse</a>
+			<center>
+                <a class="btn btn-primary btn-lg" href="http://localhost:3000/#!/stream" style="width: 48%; height:auto;">Browse</a>
 
 
-			<a class="btn btn-primary btn-lg" ng-show="authentication.user;" href="http://localhost:3000/#!/photos/create" target="_blank">Create</a>
-			<a class="btn btn-primary btn-lg"  ng-hide="authentication.user;" href="http://localhost:3000/#!/signup" target="_blank">Create</a></center><br>
+			<a class="btn btn-primary btn-lg" ng-show="authentication.user;" href="http://localhost:3000/#!/photos/create"  style="width: 48%; height:auto;">Create</a>
+
+			<a class="btn btn-primary btn-lg"  ng-hide="authentication.user;" href="http://localhost:3000/#!/signup"  style="width: 48%; height:auto;">Create</a>
+        </center>
 			
 		</div>
 
-<!--TOP GIFS-->
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Top Photos</strong>
+                    <h2 class="intro-text text-center">Top Liked Photos</strong>
                     </h2>
                     <hr>
                     	<div class="container" >
@@ -141,14 +141,14 @@
       <div  data-ng-init="find()" data-id="{{ image.uniqueId }}" >
         <a data-ng-repeat="photo in photos | orderBy:'-likes'" data-ng-href="#!/photos/{{photo._id}}" class="thumbnail topView" >
             <small class="list-group-item-text">
-                Posted on
-                <span data-ng-bind="photo.created | date:'medium'"></span>
-                by
-                <span data-ng-bind="photo.user.displayName"></span>
-                LIKES: <span data-ng-bind="photo.likes"></span>
+              
+               
+               <h3> LIKES: <span data-ng-bind="photo.likes"></span></h3>
             </small>
             <h4 class="list-group-item-heading" data-ng-bind="photo.name"></h4>
             <image src="{{photo.image}}" style="max-width:100%"  />
+             by
+                <span data-ng-bind="photo.user.displayName"></span>
         </a>
     </div>
    

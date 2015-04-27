@@ -1,5 +1,6 @@
 'use strict';
 
+
 // Articles controller
 angular.module('articles').controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Socket', 'Authentication', 'Articles',
 	function($scope, $stateParams, $location, Socket, Authentication, Articles) {
@@ -10,7 +11,8 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 			// Create new Article object
 			var article = new Articles({
 				title: this.title,
-				content: this.content
+				content: this.content,
+				emoji: this.emoji
 			});
 
 			// Redirect after save
@@ -20,6 +22,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 				// Clear form fields
 				$scope.title = '';
 				$scope.content = '';
+				$scope.emoji = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
