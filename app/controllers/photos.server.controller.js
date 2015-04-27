@@ -16,12 +16,10 @@ var mongoose = require('mongoose'),
   exports.filter = function(req,res){
 
 	var photo = req.photo ;
-	var invertImage = req.filters ;
+	
 	photo = _.extend(photo , req.body);
 	console.log('The server controller filter export is being accessed.');
-	invertImage = new Jimp('/#!/photos/'+photo._id +'/edit', function (req,res) {
-  	this.invert(); 
-	});
+	
 };
 
 /**
@@ -102,9 +100,12 @@ exports.like = function(req, res) {
  */
 exports.update = function(req, res) {
 	var photo = req.photo ;
-
-	photo = _.extend(photo , req.body);
-
+	
+	//photo = _.extend(photo , req.body);
+	var invertImage = new Jimp('./public/'+photo.image, function (req,res) {
+  	 this.invert(); 
+  	 this.write('./public/'+photo.image); 
+	});
 	photo.save(function(err) {
 		if (err) {
 			return res.status(400).send({

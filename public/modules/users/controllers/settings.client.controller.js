@@ -79,18 +79,6 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 
 
 
-	    // Create new Item
-	    $scope.create = function() {
-	        // Create new Item object
-	        var item = new Items ({
-	            name: this.name
-	          
-
-
-	        });
-
-	        ItemsService.saveItem(item,$scope.image);
-
-	    };
+	 
 	}
 ]);
