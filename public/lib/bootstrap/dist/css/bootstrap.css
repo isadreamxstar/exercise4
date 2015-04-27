@@ -6616,5 +6616,9 @@ body{
 h1, h2{
   font-family: 'Oswald', sans-serif;
 }
-
+.topView{
+  width: 30%;
+  float: left;
+  padding: 3%;
+}
 
