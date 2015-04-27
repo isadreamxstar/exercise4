@@ -67,5 +67,30 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 				$scope.error = response.message;
 			});
 		};
+
+		//uploading prof pic
+		    $scope.image='';
+
+	    $scope.uploadImage = function(e){
+	        console.log(e.target.files[0]);
+	        $scope.image=e.target.files[0];
+
+	    };
+
+
+
+	    // Create new Item
+	    $scope.create = function() {
+	        // Create new Item object
+	        var item = new Items ({
+	            name: this.name
+	          
+
+
+	        });
+
+	        ItemsService.saveItem(item,$scope.image);
+
+	    };
 	}
 ]);
