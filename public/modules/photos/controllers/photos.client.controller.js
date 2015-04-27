@@ -161,7 +161,7 @@ angular.module('filters')
  		var photo = $scope.photo;	
 	    var filters = $scope.filters;
 
-	    $http.put('photos/' + photo._id +'/edit').success(function() {
+	    $http.put(photo).success(function() {
               // Update the photo with our user ID.
               filters.invertImage.push($scope.authentication.user._id);
            
@@ -172,7 +172,7 @@ angular.module('filters')
 	    console.log('The filterThis function called and client controller filter scope is being accessed');
 			//saves the photo -- note the authorization problem in this version
 			photo.$update(function() {
-				$location.path('photos/' + photo._id + '/edit');
+				$location.path('photos/' + photo.image + '/edit');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
