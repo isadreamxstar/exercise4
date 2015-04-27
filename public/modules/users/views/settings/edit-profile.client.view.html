@@ -23,6 +23,18 @@
 					<label for="username">Username</label>
 					<input type="text" id="username" name="username" class="form-control" data-ng-model="user.username" placeholder="Username">
 				</div>
+				<div class="form-group">
+	                <label class="control-label" for="name">Image</label>
+	                <div class="controls">
+	                    <input type="file"  data-ng-model="user.image" name="image" id="image" my-file-upload="uploadImage" required>
+	                     {{selectedFile.name}}
+	                </div>
+	            </div>
+	            <div class="list-group">
+	            	<h5>Prof pic</h5>
+					<image src="{{user.image}}" style="max-width:30%" />
+
+		        </div>
 				<div class="text-center form-group">
 					<button type="submit" class="btn btn-large btn-primary">Save Profile</button>
 				</div>

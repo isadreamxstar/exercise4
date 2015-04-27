@@ -47,6 +47,10 @@ var UserSchema = new Schema({
 		type: String,
 		trim: true
 	},
+	image:{ 
+    type: String, 
+    default: ''
+	},
 	email: {
 		type: String,
 		trim: true,
