@@ -149,7 +149,7 @@ angular.module('photos')
 }]);
 
 
-*/      
+     
 
 angular.module('filters')
 .controller('FiltersController', ['$scope','$http', '$location',  '$stateParams', 'Authentication', 'Filter', 
@@ -183,4 +183,4 @@ angular.module('filters')
 	
 	
 	};
-}]);
+}]);*/ 
