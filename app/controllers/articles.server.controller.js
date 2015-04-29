@@ -7,8 +7,7 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Article = mongoose.model('Article'),
-	_ = require('lodash'),
-	emoji = require('node-emoji');
+	_ = require('lodash');
 
 /**
  * Create a article
@@ -35,7 +34,11 @@ exports.create = function(req, res) {
 
 
 
-
+exports.preview = function(req, res) {
+	var title = req.title;
+	var content = req.content;
+	res.json(req.article);
+	};
 
 
 

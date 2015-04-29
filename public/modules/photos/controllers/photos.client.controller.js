@@ -9,7 +9,11 @@ angular.module('photos')
 	  $scope.likes = 0;
 	  $scope.isLiked = false;
 
+var photo = new Photos ({
+	      name: $scope.imageName,
+              file: $scope.imageFile,
 
+	    });
 
 
 
@@ -58,20 +62,45 @@ angular.module('photos')
 	    }
 	  };
 
+
+	  var _sepiaImage= '';
+	  var _greyscaleImage= '';
+	  var _invertImage= '';
+		
 	  // Update existing Photo
 	  $scope.update = function() {
-	    var photo = $scope.photo;
+	    
+	    var	sepiaImage = function(newSepiaImage) {
+	    	 console.log('client view title preview');
+     // return angular.isDefined(newSepiaImage) ? (_sepiaImage = newSepiaImage) : _sepiaImage;
+     
+    };
+     var	invertImage = function(newInvertImage) {
+	    	 console.log('client view title preview');
 
+      //return angular.isDefined(newInvertImage) ? (_invertImage = newInvertImage) : _invertImage;
+     
+    };
+    var	greyscaleImage = function(newGreyscaleImage) {
+     // return angular.isDefined(newGreyscaleImage) ? (_greyscaleImage = newGreyscaleImage) : _greyscaleImage;
+      
+    };
+    var photo = $scope.photo;
 	    photo.$update(function() {
 	      $location.path('photos/' + photo._id);
 	    }, function(errorResponse) {
 		 $scope.error = errorResponse.data.message;
 	       });
-	  };
+	 
 	  //notify socket when updated
-	  Socket.on('photo.updated', function(photo) {
+	  $http.put('photos/' + photo._id).success(function() {
+             Socket.on('photo.updated', function(photo) {
 		    console.log('photo updated');
 		});
+
+	    });
+
+	  };
 
 	  // Find a list of Photos
 	  $scope.find = function() {
@@ -149,38 +178,4 @@ angular.module('photos')
 }]);
 
 
-     
-
-angular.module('filters')
-.controller('FiltersController', ['$scope','$http', '$location',  '$stateParams', 'Authentication', 'Filter', 
-	function($scope,$http, $location, $stateParams,   Authentication, Filter) {
-	  $scope.authentication = Authentication;
-
-
- $scope.filterThis = function() {
- 		var photo = $scope.photo;	
-	    var filters = $scope.filters;
-
-	    $http.put(photo).success(function() {
-              // Update the photo with our user ID.
-              filters.invertImage.push($scope.authentication.user._id);
-           
-
-	    });
-
-	    
-	    console.log('The filterThis function called and client controller filter scope is being accessed');
-			//saves the photo -- note the authorization problem in this version
-			photo.$update(function() {
-				$location.path('photos/' + photo.image + '/edit');
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-
-
-          	
-
-	
-	
-	};
-}]);*/ 
+ */

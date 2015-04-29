@@ -6,12 +6,17 @@
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
             <fieldset>
                 <div class="form-group">
-
+                          <div class="form-group"  >
+                
+                <input data-ng-model="update" data-ng-change="update.invertImage=update" type="submit" value="Invert" class="btn  btn-primary btn-default" ng-model-options="{ getterSetter: true }"></center>
+                 <input data-ng-model="update" data-ng-change="update.greyscaleImage=update" type="submit" value="Greyscale" class="btn btn-default btn-primary" ng-model-options="{ getterSetter: true }"></center>
+                  <input data-ng-model="update" data-ng-change="update.sepiaImage=update" type="submit" value="Sepia" class="btn btn-default btn-primary" ng-model-options="{ getterSetter: true }"></center>
+                  <input type="submit" value="Update"  class="btn btn-default" style="float:right;"></center>
+                </div>
                     <label class="control-label" for="name" >Photo Name</label>
                     <div class="controls">
                       <center>  <input type="text" data-ng-model="photo.name" id="name" class="form-control" placeholder="Name"  required >
-                        <label class="control-label" for="filter">Invert</label></br>
-                         <input  data-ng-controller="FiltersController"  id="invert" ng-click="filterThis()" data-ng-model="filter.invertImage" placeholder="Invert" class="btn btn-primary btn-lg" type="button">
+                      
                      </center>
                     </div>
                 </div>
@@ -19,12 +24,10 @@
                
   <center>  
                 <div class="page-body">
-            <image ng-src="{{photo.image}}" value="Update" style="max-width:60%"/>
+            <image ng-src="{{photo.image}}"  ng-bind="update.sepiaImage" ng-bind="update.greyscaleImage" ng-bind="update.invertImage"  style="max-width:60%"/>
  <br><br>
         </div>
-         <div class="form-group">
-                <input type="submit" value="Update" class="btn btn-default"></center>
-                </div>
+       
                 <br><br><br>
 
 				<div data-ng-show="error" class="text-danger">

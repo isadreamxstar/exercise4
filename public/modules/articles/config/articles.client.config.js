@@ -4,8 +4,8 @@
 angular.module('articles').run(['Menus',
 	function(Menus) {
 		// Set top bar menu items
-		Menus.addMenuItem('topbar', 'Articles', 'articles', 'dropdown', '/articles(/create)?');
-		Menus.addSubMenuItem('topbar', 'articles', 'List Articles', 'articles');
-		Menus.addSubMenuItem('topbar', 'articles', 'New Article', 'articles/create');
+		Menus.addMenuItem('topbar', 'Photo Blogs', 'articles', 'dropdown', '/articles(/create)?');
+		Menus.addSubMenuItem('topbar', 'articles', 'Photo Blog Stream', 'articles');
+		Menus.addSubMenuItem('topbar', 'articles', 'New Photo Blog', 'articles/create');
 	}
 ]);

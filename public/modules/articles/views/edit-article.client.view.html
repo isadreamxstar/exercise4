@@ -1,6 +1,6 @@
 <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1>Edit Article</h1>
+		<h1>Edit Photo Blogs</h1>
 	</div>
 	<div class="col-md-12">
 		<form name="articleForm" class="form-horizontal" data-ng-submit="update(articleForm.$valid)" novalidate>
@@ -24,7 +24,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" value="Update" class="btn btn-default">
+					<input type="submit" value="Update" class="btn btn-primary btn-default">
 				</div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>

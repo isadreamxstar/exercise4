@@ -7,20 +7,13 @@ var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Jimp = require('jimp'),
 	Photo = mongoose.model('Photo'),
-	Filter = mongoose.model('Filter'),
 	_ = require('lodash');
 
 
 
 
-  exports.filter = function(req,res){
 
-	var photo = req.photo ;
-	
-	photo = _.extend(photo , req.body);
-	console.log('The server controller filter export is being accessed.');
-	
-};
+
 
 /**
  * Create a Photo
@@ -100,14 +93,39 @@ exports.like = function(req, res) {
  */
 exports.update = function(req, res) {
 	var photo = req.photo ;
+	var sepiaImage = req.sepiaImage;
+	var invertImage = req.invertImage;
+	var greyscaleImage = req.greyscaleImage;
+	
+	
 	
 	//photo = _.extend(photo , req.body);
-	var invertImage = new Jimp('./public/'+photo.image, function (req,res) {
-  	 this.invert(); 
-  	 this.write('./public/'+photo.image); 
-	});
+	
+			invertImage = new Jimp('./public/'+photo.image, function (req,res) 
+			{
+  			this.invert(); 
+  			this.write('./public/'+photo.image); 
+  		
+			});
+			greyscaleImage = new Jimp('./public/'+photo.image, function (req,res) 
+			{
+			
+  			this.greyscale(); 
+  			
+  			this.write('./public/'+photo.image); 
+  		
+			});
+			sepiaImage = new Jimp('./public/'+photo.image, function (req,res) 
+			{
+				
+  			this.sepia(); 
+  			
+  			this.write('./public/'+photo.image); 
+  		
+			});
+	
 	photo.save(function(err) {
-		if (err) {
+	 if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});

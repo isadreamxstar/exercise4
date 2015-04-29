@@ -5,14 +5,27 @@
 angular.module('articles').controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Socket', 'Authentication', 'Articles',
 	function($scope, $stateParams, $location, Socket, Authentication, Articles) {
 		$scope.authentication = Authentication;
+		var _title = '';
+		var _content = '';
+		$scope.preview = function(){
 
+		var	title = function(newTitle) {
+      return angular.isDefined(newTitle) ? (_title = newTitle) : _title;
+      
+    };
+    var	content = function(newContent) {
+      return angular.isDefined(newContent) ? (_content = newContent) : _content;
+     
+    };
+		};
 		// Create new Article
 		$scope.create = function() {
 			// Create new Article object
 			var article = new Articles({
 				title: this.title,
 				content: this.content,
-				emoji: this.emoji
+				
+				
 			});
 
 			// Redirect after save
@@ -22,7 +35,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 				// Clear form fields
 				$scope.title = '';
 				$scope.content = '';
-				$scope.emoji = '';
+				
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

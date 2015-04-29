@@ -1,6 +1,8 @@
 <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
-	<div class="page-header">
+	<div class="intro-text text-center">
+		<hr>
 		<h1 data-ng-bind="article.title"></h1>
+		<hr>
 	</div>
 	<div class="pull-right" data-ng-show="authentication.user._id == article.user._id">
 		<a class="btn btn-primary" href="/#!/articles/{{article._id}}/edit">

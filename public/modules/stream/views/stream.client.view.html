@@ -5,6 +5,7 @@
     </div>
     <div class="">
         <a data-ng-repeat="photo in photos" data-ng-href="#!/photos/{{photo._id}}" class="list-group-item thumbnail streamPhoto">
+           
             <small class="list-group-item-text">
                <!-- Posted on
                 <span data-ng-bind="photo.created | date:'medium'"></span>-->
@@ -14,11 +15,30 @@
             </small><br>
            
             <image src="{{photo.image}}" style="max-width:100%" />
+
         </a>
     </div>
-
-       <!-- <div class="row">
-
+</section>
+       <section data-ng-controller="ArticlesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Photo Blogs</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" class="list-group-item" style="max-width:40%; float:left;">
+            <small class="list-group-item-text" style="max-width:40%>
+                Posted on
+                <span data-ng-bind="article.created | date:'mediumDate'"></span>
+                by
+                <span data-ng-bind="article.user.displayName"></span>
+            </small>
+            <h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
+            <p class="list-group-item-text" data-ng-bind="article.content"></p>
+        </a>
+    </div>
+</div>
+      <!--      </small>
+            <h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
+            <p class="list-group-item-text" data-ng-bind="article.content"></p>
             <div class="col-lg-12">
                 <h1 class="page-header">Photo Stream Gallery</h1>
             </div>
