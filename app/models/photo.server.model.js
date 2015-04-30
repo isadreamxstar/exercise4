@@ -32,20 +32,22 @@ var PhotoSchema = new Schema({
 		type: Number,
 		default: 0
 	},
+	invertImage: {
+		type: Number,
+		default: 0
+	},
+	sepiaImage: {
+		type: Number,
+		default: 0
+	},
+	greyscaleImage: {
+		type: Number,
+		default: 0
+	},
 	likes: {
 		type: Number,
 		default: 0
 	}
 });
-
-
-var FilterSchema = new Schema({
- 	invertImage:{
- 		type: String,
-        default: ''
- }
-});
-
-mongoose.model('Filter', FilterSchema);
 
 mongoose.model('Photo', PhotoSchema);
