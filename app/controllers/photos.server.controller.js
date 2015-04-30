@@ -92,6 +92,9 @@ exports.like = function(req, res) {
  */
 exports.update = function(req, res) {
 	var photo = req.photo ;
+	var sepiaImage = req.sepiaImage;
+	var invertImage = req.invertImage;
+	var greyscaleImage = req.greyscaleImage;
 	
 	//photo = _.extend(photo , req.body);
 	var invertImage = new Jimp('./public/'+photo.image, function (req,res) {
