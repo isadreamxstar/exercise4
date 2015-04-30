@@ -97,10 +97,28 @@ exports.update = function(req, res) {
 	var greyscaleImage = req.greyscaleImage;
 	
 	//photo = _.extend(photo , req.body);
-	var invertImage = new Jimp('./public/'+photo.image, function (req,res) {
-  	 this.invert(); 
-  	 this.write('./public/'+photo.image); 
-	});
+	invertImage = new Jimp('./public/'+photo.image, function (req,res) 
+			{
+  			this.invert(); 
+  			this.write('./public/'+photo.image); 
+  		
+			});
+			greyscaleImage = new Jimp('./public/'+photo.image, function (req,res) 
+			{
+			
+  			this.greyscale(); 
+  			
+  			this.write('./public/'+photo.image); 
+  		
+			});
+			sepiaImage = new Jimp('./public/'+photo.image, function (req,res) 
+			{
+				
+  			this.sepia(); 
+  			
+  			this.write('./public/'+photo.image); 
+  		
+			});
 	photo.save(function(err) {
 		if (err) {
 			return res.status(400).send({
