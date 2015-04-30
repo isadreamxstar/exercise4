@@ -7,20 +7,12 @@ var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Jimp = require('jimp'),
 	Photo = mongoose.model('Photo'),
-	Filter = mongoose.model('Filter'),
 	_ = require('lodash');
 
 
 
 
-  exports.filter = function(req,res){
 
-	var photo = req.photo ;
-	
-	photo = _.extend(photo , req.body);
-	console.log('The server controller filter export is being accessed.');
-	
-};
 
 /**
  * Create a Photo
